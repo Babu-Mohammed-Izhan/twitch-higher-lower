@@ -28,13 +28,9 @@ const Footer = () => {
                  font-semibold
                  "
             >
-              Casity
+              Higher or Lower
             </span>
           </Link>
-          <p className="mt-2 text-sm text-gray-500">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi,
-            quam?
-          </p>
         </div>
         <div
           className="

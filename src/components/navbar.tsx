@@ -37,7 +37,7 @@ const Navbar = () => {
           "
               to="/"
             >
-              Casity
+              Higher or Lower
             </Link>
           </div>
 
@@ -78,7 +78,7 @@ const Navbar = () => {
           "
               to="/"
             >
-              Home
+              About
             </Link>
           </div>
         </div>
