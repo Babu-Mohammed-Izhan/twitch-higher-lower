@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow dark:bg-gray-800">
+    <nav className="bg-white shadow ">
       <div
         className="
       container
@@ -25,15 +25,14 @@ const Navbar = () => {
             <Link
               className="
                 bg-clip-text text-transparent
-                 bg-gradient-to-r 
-                 from-blue-500 
-                 to-purple-500
+                 bg-gradient-to-br 
+                 from-green-500 
+                 to-red-500
             text-xl
             font-bold
-            dark:text-white
             md:text-2xl
-            hover:to-purple-400
-            hover:from-blue-400
+            hover:from-green-400
+            hover:to-red-400
           "
               to="/"
             >
@@ -46,11 +45,8 @@ const Navbar = () => {
               type="button"
               className="
             text-gray-500
-            dark:text-gray-200
             hover:text-gray-600
-            dark:hover:text-gray-400
             focus:outline-none focus:text-gray-600
-            dark:focus:text-gray-400
           "
               aria-label="toggle menu"
               onClick={() => handleToggle()}
@@ -71,12 +67,10 @@ const Navbar = () => {
               className="
             my-2
             text-gray-700
-            dark:text-gray-200
             hover:text-indigo-500
-            dark:hover:text-indigo-400
             md:mx-4 md:my-0
           "
-              to="/"
+              to="/about"
             >
               About
             </Link>

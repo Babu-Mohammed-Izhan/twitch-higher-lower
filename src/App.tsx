@@ -6,11 +6,11 @@ import Footer from "./components/footer";
 
 function App() {
   return (
-    <div>
+    <div className="h-screen">
       <Navbar />
       <Routes>
+        <Route path="/game" element={<Game />} />
         <Route path="/" element={<Startpage />} />
-        <Route path="game" element={<Game />} />
       </Routes>
       <Footer />
     </div>
