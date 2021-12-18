@@ -3,14 +3,13 @@ const Footer = () => {
     <footer className="text-gray-800 body-font">
       <div
         className="
-      mx-auto
       flex
       md:items-center
       md:flex-row 
       flex-wrap flex-col
     "
       >
-        <div className="bg-gray-100 w-screen">
+        <div className="bg-gray-100">
           <div
             className="
         container

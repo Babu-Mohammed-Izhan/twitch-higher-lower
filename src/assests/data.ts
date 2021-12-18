@@ -1,4 +1,4 @@
-[
+const data = [
   {
     "rank": 0,
     "earning": "9,626,712.16",
@@ -60000,3 +60000,5 @@
     "login": "dwarf_mamba"
   }
 ]
+
+export {data}
