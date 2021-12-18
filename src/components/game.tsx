@@ -27,7 +27,8 @@ const Game = ({ score, setScore }: GameProp) => {
     data[Math.floor(Math.random() * (data.length - 1))]
   );
 
-  const [mark, setMark] = useState(false);
+  const [correct, setCorrect] = useState(false);
+  const [wrong, setWrong] = useState(false);
 
   const handleHighorLow = (hl: string) => {
     const firstNumber: number = parseFloat(first.earning.replace(/,/g, ""));
@@ -38,12 +39,12 @@ const Game = ({ score, setScore }: GameProp) => {
         const highcheck = firstNumber < secondNumber;
         if (highcheck) {
           console.log("correct");
-          setMark(true);
+          setCorrect(true);
           setScore(score + 1);
         } else {
-          setMark(true);
+          setWrong(true);
           setTimeout(() => {
-            navigate("/tryagain");
+            navigate("/result");
           }, 1500);
         }
         break;
@@ -51,19 +52,20 @@ const Game = ({ score, setScore }: GameProp) => {
         const lowcheck = firstNumber > secondNumber;
         if (lowcheck) {
           console.log("correct");
-          setMark(true);
+          setCorrect(true);
           setScore(score + 1);
         } else {
-          setMark(true);
+          setWrong(true);
           setTimeout(() => {
-            navigate("/tryagain");
+            navigate("/result");
           }, 1500);
         }
         break;
     }
 
     setTimeout(() => {
-      setMark(false);
+      setCorrect(false);
+      setWrong(false);
       setFirst(second);
       setSecond(third);
       setThird(data[Math.floor(Math.random() * (data.length - 1))]);
@@ -72,18 +74,25 @@ const Game = ({ score, setScore }: GameProp) => {
 
   useEffect(() => {
     setScore(0);
-    setMark(false);
+    setCorrect(false);
+    setWrong(false);
   }, [setScore]);
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-gray-700 opacity-50 h-[94%] relative">
+    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-slate-900 opacity-60  h-[94%] relative">
       <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl">
         <h1 className="">{first.name}</h1>
         <h3 className="mt-3">$ {first.earning}</h3>
       </div>
       <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-[3.6rem]">
         <h1>{second.name}</h1>
-        <h3 className={`mt-3 ${mark ? null : "hidden"}`}>$ {second.earning}</h3>
+        <h3
+          className={`mt-3 ${
+            correct || wrong ? "transition-all ease-in duration-500" : "hidden"
+          }`}
+        >
+          $ {second.earning}
+        </h3>
 
         <button
           className="text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white font-medium outline-1 outline outline-offset-4 outline-white"
@@ -98,7 +107,11 @@ const Game = ({ score, setScore }: GameProp) => {
           Lower
         </button>
       </div>
-      <div className="absolute top-1/2 left-1/2 -translate-y-3/4  md:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl">
+      <div
+        className={`absolute top-1/2 left-1/2 -translate-y-3/4  md:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
+          wrong ? "transition ease-in bg-red-700 duration-400 " : null
+        } ${correct ? "transition ease-in bg-green-700 duration-400 " : null}`}
+      >
         {score}
       </div>
     </div>
