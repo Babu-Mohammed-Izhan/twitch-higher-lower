@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="text-gray-800 body-font w-full bg-gray-100">
+    <footer className="text-white body-font w-full bg-black">
       <div
         className="
       flex
@@ -20,7 +20,7 @@ const Footer = () => {
         flex-row
       "
           >
-            <p className="text-gray-500 text-sm text-center sm:text-left">
+            <p className=" text-sm text-center sm:text-left">
               Made By
               <a
                 href="https://babumohammedizhan.netlify.app/"

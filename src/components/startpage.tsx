@@ -8,7 +8,7 @@ const Startpage = () => {
         <h1 className="text-4xl md:text-6xl text-white font-bold">
           Higher or Lower
         </h1>
-        <p className="text-3xl text-white font-bold py-2 text-center ">
+        <p className="text-4xl text-white font-bold py-2 text-center ">
           <span>
             <img src={Twitch} width="150" height="150" alt="logo" />
           </span>{" "}
