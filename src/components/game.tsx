@@ -31,8 +31,8 @@ const Game = ({ score, setScore }: GameProp) => {
   const [wrong, setWrong] = useState(false);
 
   const handleHighorLow = (hl: string) => {
-    const firstNumber: number = parseFloat(first.earning.replace(/,/g, ""));
-    const secondNumber: number = parseFloat(second.earning.replace(/,/g, ""));
+    const firstNumber: number = first.gross_earning;
+    const secondNumber: number = second.gross_earning;
 
     switch (hl) {
       case "high":
@@ -76,22 +76,38 @@ const Game = ({ score, setScore }: GameProp) => {
     setScore(0);
     setCorrect(false);
     setWrong(false);
-  }, [setScore]);
+  }, []);
+
+  const handleSrcError = (e: any) => {
+    e.target.src = "../assests/images/twitch.png";
+  };
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-slate-900 opacity-60  h-[94%] relative">
+    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-slate-900  h-[94%] relative">
       <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl">
-        <h1 className="">{first.name}</h1>
-        <h3 className="mt-3">$ {first.earning}</h3>
+        <img
+          className="rounded-full h-14 w-14 text-sm"
+          src={`https://static-cdn.jtvnw.net/jtv_user_pictures/${first.path}`}
+          onError={handleSrcError}
+          alt="profile-pic"
+        />
+        <h1 className="">{first.username}</h1>
+        <h3 className="mt-3">$ {first.gross_earning}</h3>
       </div>
-      <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-[3.6rem]">
-        <h1>{second.name}</h1>
+      <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-24 md:pt-[3.6rem]">
+        <img
+          className="rounded-full h-14 w-14 text-sm"
+          src={`https://static-cdn.jtvnw.net/jtv_user_pictures/${second.path}`}
+          onError={handleSrcError}
+          alt="profile-pic"
+        />
+        <h1>{second.username}</h1>
         <h3
           className={`mt-3 ${
             correct || wrong ? "transition-all ease-in duration-500" : "hidden"
           }`}
         >
-          $ {second.earning}
+          $ {second.gross_earning}
         </h3>
 
         <button
@@ -101,14 +117,14 @@ const Game = ({ score, setScore }: GameProp) => {
           Higher
         </button>
         <button
-          className=" text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white font-medium outline-1 outline outline-offset-4 outline-white"
+          className=" text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white font-medium outline-1 outline outline-offset-4 outline-white"
           onClick={() => handleHighorLow("low")}
         >
           Lower
         </button>
       </div>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-y-3/4  md:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
+        className={`absolute top-1/2 left-1/2 -translate-y-full  md:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
           wrong ? "transition ease-in bg-red-700 duration-400 " : null
         } ${correct ? "transition ease-in bg-green-700 duration-400 " : null}`}
       >

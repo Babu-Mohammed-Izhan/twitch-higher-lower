@@ -10,7 +10,7 @@ const Tryagain = ({ points }: TryagainProp) => {
   return (
     <div className="flex justify-center items-center flex-col  w-full bg-gray-700 opacity-60 h-[93%]">
       <div className="flex items-center justify-center flex-col text-white text-3xl md:text-5xl text-center py-12">
-        Nice! You got {points} points. <br />
+        Nice! You got {points} point{points === 1 ? null : `s`}. <br />
         Try Again to get a higher score!
       </div>
       <button

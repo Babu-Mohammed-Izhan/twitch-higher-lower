@@ -4,8 +4,7 @@ const Footer = () => {
       <div
         className="
       flex
-      md:items-center
-      md:flex-row 
+      items-center
       flex-wrap flex-col
     "
       >
