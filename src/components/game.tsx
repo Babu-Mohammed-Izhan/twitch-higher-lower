@@ -88,10 +88,12 @@ const Game = ({ score, setScore }: GameProp) => {
   return (
     <div className="w-full bg-purple-900  h-[94%] relative">
       <div className="grid lg:grid-cols-2 grid-cols-1 h-full">
-        <motion.div
-          animate={clicked ? { y: "-90%" } : { y: 0 }}
-          transition={{ duration: 0.5 }}
-          className=" xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl"
+        <div
+          className={`${
+            clicked
+              ? "transition-all -translate-y-[100%] lg:-translate-y-0 lg:-translate-x-[100%] duration-500"
+              : ""
+          } xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
         >
           <img
             className="rounded-full h-14 w-14 text-sm"
@@ -101,11 +103,13 @@ const Game = ({ score, setScore }: GameProp) => {
           />
           <h1>{first.username}</h1>
           <h3 className="mt-3">$ {Math.round(first.gross_earning)}</h3>
-        </motion.div>
-        <motion.div
-          animate={clicked ? { y: "-90%" } : { y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-24 md:pt-[3.6rem]"
+        </div>
+        <div
+          className={` ${
+            clicked
+              ? "transition-all -translate-y-[75%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500"
+              : ""
+          } flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-24 md:pt-30 `}
         >
           <img
             className="rounded-full h-14 w-14 text-sm"
@@ -114,41 +118,51 @@ const Game = ({ score, setScore }: GameProp) => {
             alt="profile-pic"
           />
           <h1>{second.username}</h1>
-          <h3 className="mt-3 h-9">
+          <h3 className="mt-3 h-10">
             {correct || wrong ? (
               <>
                 {" "}
                 <CountUp
-                  prefix="USD"
+                  prefix="$ "
                   end={Math.round(second.gross_earning)}
+                  duration={0.5}
+                  separator=" "
                 />{" "}
               </>
             ) : (
               ""
             )}
           </h3>
-          <button
-            className={` ${
-              clicked ? "hidden" : ""
-            } text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
-            onClick={() => handleHighorLow("high")}
+          <div
+            className={`${
+              clicked ? "pb-24" : ""
+            } flex items-center justify-center flex-col`}
           >
-            Higher
-          </button>
-          <button
-            className={` ${
-              clicked ? "hidden" : ""
-            } text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
-            onClick={() => handleHighorLow("low")}
-          >
-            Lower
-          </button>
-        </motion.div>
+            <button
+              className={` ${
+                clicked ? "hidden" : ""
+              } text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
+              onClick={() => handleHighorLow("high")}
+            >
+              Higher
+            </button>
+            <button
+              className={` ${
+                clicked ? "hidden" : ""
+              } text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
+              onClick={() => handleHighorLow("low")}
+            >
+              Lower
+            </button>
+          </div>
+        </div>
       </div>
-      <motion.div
-        animate={clicked ? { y: "-90%" } : { y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="absolute -top-1/2 xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl"
+      <div
+        className={`${
+          clicked
+            ? "transition-all -translate-y-[235%] lg:-translate-y-0 lg:-translate-x-[235%] duration-500"
+            : ""
+        } absolute xs:mb-16 lg:top-1/2 top-[110%] left-1/2 -translate-x-1/2 lg:-left-[200%] flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
       >
         <img
           className="rounded-full h-14 w-14 text-sm"
@@ -158,7 +172,7 @@ const Game = ({ score, setScore }: GameProp) => {
         />
         <h1>{third.username}</h1>
         <h3 className="mt-3">$ {Math.round(third.gross_earning)}</h3>
-      </motion.div>
+      </div>
       <div
         className={`absolute top-1/2 left-1/2 -translate-y-20 md:-translate-y-30 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
           wrong ? "transition ease-in bg-red-700 duration-400 " : null
