@@ -107,13 +107,13 @@ const Game = ({ score, setScore }: GameProp) => {
         </h3>
 
         <button
-          className="text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white font-medium outline-1 outline outline-offset-4 outline-white"
+          className="text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white font-bold outline-1 outline outline-offset-4 outline-white"
           onClick={() => handleHighorLow("high")}
         >
           Higher
         </button>
         <button
-          className=" text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white font-medium outline-1 outline outline-offset-4 outline-white"
+          className=" text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white font-bold outline-1 outline outline-offset-4 outline-white"
           onClick={() => handleHighorLow("low")}
         >
           Lower

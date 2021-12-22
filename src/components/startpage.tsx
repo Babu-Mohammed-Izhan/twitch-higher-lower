@@ -20,7 +20,7 @@ const Startpage = () => {
           </span>{" "}
           Edition
         </p>
-        <button className="mb-10 px-7 py-3 mt-28 rounded-full hover:outline-offset-8 text-white font-medium outline-1 outline outline-offset-4 outline-white text-lg">
+        <button className="mb-10 px-7 py-3 mt-28 rounded-full hover:outline-offset-8 text-white font-bold outline-1 outline outline-offset-4 outline-white text-lg">
           <Link to="/game">Start Game</Link>
         </button>
       </div>
