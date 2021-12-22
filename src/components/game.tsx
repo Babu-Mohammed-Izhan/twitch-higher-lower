@@ -1,6 +1,7 @@
 import { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { data } from "../assests/data";
+import TwitchLogo from "../assests/images/android-chrome-512x512.png";
 
 // interface Streamer {
 //   rank: number;
@@ -38,7 +39,6 @@ const Game = ({ score, setScore }: GameProp) => {
       case "high":
         const highcheck = firstNumber < secondNumber;
         if (highcheck) {
-          console.log("correct");
           setCorrect(true);
           setScore(score + 1);
         } else {
@@ -51,7 +51,6 @@ const Game = ({ score, setScore }: GameProp) => {
       case "low":
         const lowcheck = firstNumber > secondNumber;
         if (lowcheck) {
-          console.log("correct");
           setCorrect(true);
           setScore(score + 1);
         } else {
@@ -79,20 +78,21 @@ const Game = ({ score, setScore }: GameProp) => {
   }, []);
 
   const handleSrcError = (e: any) => {
-    e.target.src = "../assests/images/twitch.png";
+    e.target.src = TwitchLogo;
+    e.target.onError = null;
   };
 
   return (
-    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-slate-900  h-[94%] relative">
-      <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl">
+    <div className="grid lg:grid-cols-2 grid-cols-1 w-full bg-purple-900  h-[94%] relative">
+      <div className=" xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl">
         <img
           className="rounded-full h-14 w-14 text-sm"
           src={`https://static-cdn.jtvnw.net/jtv_user_pictures/${first.path}`}
           onError={handleSrcError}
           alt="profile-pic"
         />
-        <h1 className="">{first.username}</h1>
-        <h3 className="mt-3">$ {first.gross_earning}</h3>
+        <h1>{first.username}</h1>
+        <h3 className="mt-3">$ {Math.round(first.gross_earning)}</h3>
       </div>
       <div className="flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-24 md:pt-[3.6rem]">
         <img
@@ -102,12 +102,8 @@ const Game = ({ score, setScore }: GameProp) => {
           alt="profile-pic"
         />
         <h1>{second.username}</h1>
-        <h3
-          className={`mt-3 ${
-            correct || wrong ? "transition-all ease-in duration-500" : "hidden"
-          }`}
-        >
-          $ {second.gross_earning}
+        <h3 className="mt-3 h-9">
+          {correct || wrong ? `$ ${Math.round(second.gross_earning)}` : ""}
         </h3>
 
         <button
@@ -124,7 +120,7 @@ const Game = ({ score, setScore }: GameProp) => {
         </button>
       </div>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-y-full  md:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
+        className={`absolute top-1/2 left-1/2 -translate-y-20 md:-translate-y-30 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
           wrong ? "transition ease-in bg-red-700 duration-400 " : null
         } ${correct ? "transition ease-in bg-green-700 duration-400 " : null}`}
       >
