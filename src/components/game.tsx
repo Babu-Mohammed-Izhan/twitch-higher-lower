@@ -1,6 +1,5 @@
 import { useState, Dispatch, SetStateAction, useEffect } from "react";
 import CountUp from "react-countup";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { data } from "../assests/data";
 import TwitchLogo from "../assests/images/android-chrome-512x512.png";
