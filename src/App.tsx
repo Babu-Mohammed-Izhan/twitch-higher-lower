@@ -9,7 +9,7 @@ function App() {
   const [score, setScore] = useState(0);
 
   return (
-    <div className="h-screen w-full bg-black overflow-y-hidden">
+    <div className="h-screen w-full bg-black overflow-hidden">
       <Routes>
         <Route
           path="/game"

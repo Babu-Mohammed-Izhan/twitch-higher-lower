@@ -100,15 +100,16 @@ const Game = ({ score, setScore }: GameProp) => {
             onError={handleSrcError}
             alt="profile-pic"
           />
+          <p>{first.rank}</p>
           <h1>{first.username}</h1>
           <h3 className="mt-3">$ {Math.round(first.gross_earning)}</h3>
         </div>
         <div
           className={` ${
             clicked
-              ? "transition-all -translate-y-[75%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500"
+              ? "transition-all -translate-y-[73%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500"
               : ""
-          } flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-24 md:pt-30 `}
+          } flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-16 md:pt-30 `}
         >
           <img
             className="rounded-full h-14 w-14 text-sm"
@@ -116,6 +117,7 @@ const Game = ({ score, setScore }: GameProp) => {
             onError={handleSrcError}
             alt="profile-pic"
           />
+          {correct || wrong ? <p>{second.rank}</p> : ""}
           <h1>{second.username}</h1>
           <h3 className="mt-3 h-10">
             {correct || wrong ? (
@@ -140,7 +142,7 @@ const Game = ({ score, setScore }: GameProp) => {
             <button
               className={` ${
                 clicked ? "hidden" : ""
-              } text-md md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
+              } text-sm md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
               onClick={() => handleHighorLow("high")}
             >
               Higher
@@ -148,7 +150,7 @@ const Game = ({ score, setScore }: GameProp) => {
             <button
               className={` ${
                 clicked ? "hidden" : ""
-              } text-md md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
+              } text-sm md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
               onClick={() => handleHighorLow("low")}
             >
               Lower
@@ -159,9 +161,9 @@ const Game = ({ score, setScore }: GameProp) => {
       <div
         className={`${
           clicked
-            ? "transition-all -translate-y-[235%] lg:-translate-y-0 lg:-translate-x-[235%] duration-500"
+            ? "transition-all -translate-y-[420%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500"
             : ""
-        } absolute xs:mb-16 lg:top-1/2 top-[110%] left-1/2 -translate-x-1/2 lg:-left-[200%] flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
+        } absolute xs:mb-16  top-[110%] left-1/2 -translate-x-1/2 lg:left-[130%] lg:top-1/2 lg:-translate-y-2/3  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
       >
         <img
           className="rounded-full h-14 w-14 text-sm"
@@ -170,10 +172,9 @@ const Game = ({ score, setScore }: GameProp) => {
           alt="profile-pic"
         />
         <h1>{third.username}</h1>
-        <h3 className="mt-3">$ {Math.round(third.gross_earning)}</h3>
       </div>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-y-20 md:-translate-y-30 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-5 px-7 rounded-full text-slate-900 font-bold text-2xl ${
+        className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] md:-translate-y-20 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl ${
           wrong ? "transition ease-in bg-red-700 duration-400 " : null
         } ${correct ? "transition ease-in bg-green-700 duration-400 " : null}`}
       >
