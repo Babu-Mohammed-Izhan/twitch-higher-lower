@@ -163,7 +163,7 @@ const Game = ({ score, setScore }: GameProp) => {
       <div
         className={`${
           clicked
-            ? 'transition-all -translate-y-[420%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500'
+            ? 'transition-all -translate-y-[400%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500'
             : ''
         } absolute xs:mb-16  top-[110%] left-1/2 -translate-x-1/2 lg:left-[130%] lg:top-1/2 lg:-translate-y-2/3  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
       >
@@ -173,12 +173,14 @@ const Game = ({ score, setScore }: GameProp) => {
           onError={handleSrcError}
           alt="profile-pic"
         />
-        <h1>{third.username}</h1>
+        <h2 className="text-xl md:text-4xl lg:text-6xl">{third.username}</h2>
       </div>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] md:-translate-y-20 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl ${
-          wrong ? 'transition ease-in bg-red-700 duration-400 ' : null
-        } ${correct ? 'transition ease-in bg-green-700 duration-400 ' : null}`}
+        className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] md:-translate-y-20 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl
+         ${clicked ? 'transition-all ease-out invisible duration-400' : ''}
+         ${wrong ? 'transition ease-in bg-red-700 duration-400 ' : null} ${
+          correct ? 'transition ease-in bg-green-700 duration-400 ' : null
+        }`}
       >
         {score}
       </div>
