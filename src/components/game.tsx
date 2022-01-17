@@ -1,8 +1,8 @@
-import { useState, Dispatch, SetStateAction, useEffect } from "react";
-import CountUp from "react-countup";
-import { useNavigate } from "react-router-dom";
-import { data } from "../assests/data";
-import TwitchLogo from "../assests/images/android-chrome-512x512.png";
+import { useState, Dispatch, SetStateAction, useEffect } from 'react';
+import CountUp from 'react-countup';
+import { useNavigate } from 'react-router-dom';
+import { data } from '../assests/data';
+import TwitchLogo from '../assests/images/android-chrome-512x512.png';
 
 interface GameProp {
   score: number;
@@ -31,7 +31,7 @@ const Game = ({ score, setScore }: GameProp) => {
     const secondNumber: number = second.gross_earning;
 
     switch (hl) {
-      case "high":
+      case 'high':
         const highcheck = firstNumber < secondNumber;
         if (highcheck) {
           setCorrect(true);
@@ -42,11 +42,11 @@ const Game = ({ score, setScore }: GameProp) => {
         } else {
           setWrong(true);
           setTimeout(() => {
-            navigate("/result");
+            navigate('/result');
           }, 1500);
         }
         break;
-      case "low":
+      case 'low':
         const lowcheck = firstNumber > secondNumber;
         if (lowcheck) {
           setCorrect(true);
@@ -57,7 +57,7 @@ const Game = ({ score, setScore }: GameProp) => {
         } else {
           setWrong(true);
           setTimeout(() => {
-            navigate("/result");
+            navigate('/result');
           }, 1500);
         }
         break;
@@ -90,8 +90,8 @@ const Game = ({ score, setScore }: GameProp) => {
         <div
           className={`${
             clicked
-              ? "transition-all -translate-y-[100%] lg:-translate-y-0 lg:-translate-x-[100%] duration-500"
-              : ""
+              ? 'transition-all -translate-y-[100%] lg:-translate-y-0 lg:-translate-x-[100%] duration-500'
+              : ''
           } xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
         >
           <img
@@ -100,15 +100,17 @@ const Game = ({ score, setScore }: GameProp) => {
             onError={handleSrcError}
             alt="profile-pic"
           />
-          <p>{first.rank}</p>
-          <h1>{first.username}</h1>
-          <h3 className="mt-3">$ {Math.round(first.gross_earning)}</h3>
+          <p className="text-xl md:text-4xl lg:text-6xl">{first.rank}</p>
+          <h2 className="text-xl md:text-4xl lg:text-6xl">{first.username}</h2>
+          <h3 className="mt-3 text-xl md:text-4xl lg:text-6xl">
+            $ {Math.round(first.gross_earning)}
+          </h3>
         </div>
         <div
           className={` ${
             clicked
-              ? "transition-all -translate-y-[73%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500"
-              : ""
+              ? 'transition-all -translate-y-[73%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500'
+              : ''
           } flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-16 md:pt-30 `}
         >
           <img
@@ -117,41 +119,41 @@ const Game = ({ score, setScore }: GameProp) => {
             onError={handleSrcError}
             alt="profile-pic"
           />
-          {correct || wrong ? <p>{second.rank}</p> : ""}
-          <h1>{second.username}</h1>
+          {correct || wrong ? <p>{second.rank}</p> : ''}
+          <h2 className="text-xl md:text-4xl lg:text-6xl">{second.username}</h2>
           <h3 className="mt-3 h-10">
             {correct || wrong ? (
               <>
-                {" "}
+                {' '}
                 <CountUp
                   prefix="$ "
                   end={Math.round(second.gross_earning)}
                   duration={0.5}
                   separator=" "
-                />{" "}
+                />{' '}
               </>
             ) : (
-              ""
+              ''
             )}
           </h3>
           <div
             className={`${
-              clicked ? "pb-24" : ""
+              clicked ? 'pb-24' : ''
             } flex items-center justify-center flex-col`}
           >
             <button
               className={` ${
-                clicked ? "hidden" : ""
+                clicked ? 'hidden' : ''
               } text-sm md:text-lg mt-5 px-3 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
-              onClick={() => handleHighorLow("high")}
+              onClick={() => handleHighorLow('high')}
             >
               Higher
             </button>
             <button
               className={` ${
-                clicked ? "hidden" : ""
+                clicked ? 'hidden' : ''
               } text-sm md:text-lg mt-5 px-4 py-1 md:px-5 md:py-2 rounded-full  text-white md:font-bold outline-1 outline outline-offset-4 outline-white`}
-              onClick={() => handleHighorLow("low")}
+              onClick={() => handleHighorLow('low')}
             >
               Lower
             </button>
@@ -161,8 +163,8 @@ const Game = ({ score, setScore }: GameProp) => {
       <div
         className={`${
           clicked
-            ? "transition-all -translate-y-[420%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500"
-            : ""
+            ? 'transition-all -translate-y-[420%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500'
+            : ''
         } absolute xs:mb-16  top-[110%] left-1/2 -translate-x-1/2 lg:left-[130%] lg:top-1/2 lg:-translate-y-2/3  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
       >
         <img
@@ -175,8 +177,8 @@ const Game = ({ score, setScore }: GameProp) => {
       </div>
       <div
         className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] md:-translate-y-20 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl ${
-          wrong ? "transition ease-in bg-red-700 duration-400 " : null
-        } ${correct ? "transition ease-in bg-green-700 duration-400 " : null}`}
+          wrong ? 'transition ease-in bg-red-700 duration-400 ' : null
+        } ${correct ? 'transition ease-in bg-green-700 duration-400 ' : null}`}
       >
         {score}
       </div>

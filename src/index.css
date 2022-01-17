@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
+
+@font-face {
+  font-family: 'twitch';
+  src: local('twitchy'), url(./assests/font/Twitchy.TV.ttf) format('truetype');
+}
+
 @tailwind utilities;
