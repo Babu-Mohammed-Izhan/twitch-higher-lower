@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import Game from "./components/game";
-import Startpage from "./components/startpage";
-import Footer from "./components/footer";
-import Tryagain from "./components/tryagain";
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Game from './components/game';
+import Startpage from './components/startpage';
+import Footer from './components/footer';
+import Tryagain from './components/tryagain';
 
 function App() {
   const [score, setScore] = useState(0);

@@ -86,12 +86,10 @@ const Game = ({ score, setScore }: GameProp) => {
 
   return (
     <div className="w-full bg-purple-900  h-[94%] relative">
-      <div className="grid lg:grid-cols-2 grid-cols-1 h-full">
+      <div className="grid grid-cols-1 h-full">
         <div
           className={`${
-            clicked
-              ? 'transition-all -translate-y-[100%] lg:-translate-y-0 lg:-translate-x-[100%] duration-500'
-              : ''
+            clicked ? 'transition-all -translate-y-[100%] duration-500' : ''
           } xs:mb-16  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
         >
           <img
@@ -100,17 +98,15 @@ const Game = ({ score, setScore }: GameProp) => {
             onError={handleSrcError}
             alt="profile-pic"
           />
-          <p className="text-xl md:text-4xl lg:text-6xl">{first.rank}</p>
-          <h2 className="text-xl md:text-4xl lg:text-6xl">{first.username}</h2>
-          <h3 className="mt-3 text-xl md:text-4xl lg:text-6xl">
+          <p className="text-xl md:text-3xl lg:text-4xl">{first.rank}</p>
+          <h2 className="text-xl md:text-3xl lg:text-4xl">{first.username}</h2>
+          <h3 className="mt-3 text-xl md:text-3xl lg:text-4xl">
             $ {Math.round(first.gross_earning)}
           </h3>
         </div>
         <div
           className={` ${
-            clicked
-              ? 'transition-all -translate-y-[73%] lg:-translate-y-0 lg:-translate-x-[110%] duration-500'
-              : ''
+            clicked ? 'transition-all -translate-y-[73%] duration-500' : ''
           } flex items-center justify-center flex-col text-white text-2xl md:text-5xl pt-16 md:pt-30 `}
         >
           <img
@@ -120,7 +116,7 @@ const Game = ({ score, setScore }: GameProp) => {
             alt="profile-pic"
           />
           {correct || wrong ? <p>{second.rank}</p> : ''}
-          <h2 className="text-xl md:text-4xl lg:text-6xl">{second.username}</h2>
+          <h2 className="text-xl md:text-3xl lg:text-4xl">{second.username}</h2>
           <h3 className="mt-3 h-10">
             {correct || wrong ? (
               <>
@@ -162,10 +158,8 @@ const Game = ({ score, setScore }: GameProp) => {
       </div>
       <div
         className={`${
-          clicked
-            ? 'transition-all -translate-y-[400%] lg:-translate-y-0 lg:-translate-x-[330%] duration-500'
-            : ''
-        } absolute xs:mb-16  top-[110%] left-1/2 -translate-x-1/2 lg:left-[130%] lg:top-1/2 lg:-translate-y-2/3  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
+          clicked ? 'transition-all -translate-y-[400%] duration-500' : ''
+        } absolute xs:mb-16  top-[110%] left-1/2 -translate-x-1/2  flex items-center justify-center flex-col text-white text-2xl md:text-5xl`}
       >
         <img
           className="rounded-full h-14 w-14 text-sm"
@@ -173,10 +167,10 @@ const Game = ({ score, setScore }: GameProp) => {
           onError={handleSrcError}
           alt="profile-pic"
         />
-        <h2 className="text-xl md:text-4xl lg:text-6xl">{third.username}</h2>
+        <h2 className="text-xl md:text-3xl lg:text-4xl">{third.username}</h2>
       </div>
       <div
-        className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] md:-translate-y-20 lg:-translate-y-1/2 -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl
+        className={`absolute top-1/2 left-1/2 -translate-y-[5.5rem] -translate-x-1/2 bg-white p-3 px-5 md:p-5 md:px-7 rounded-full text-slate-900 font-bold text-2xl
          ${clicked ? 'transition-all ease-out invisible duration-400' : ''}
          ${wrong ? 'transition ease-in bg-red-700 duration-400 ' : null} ${
           correct ? 'transition ease-in bg-green-700 duration-400 ' : null

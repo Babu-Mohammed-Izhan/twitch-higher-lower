@@ -5,7 +5,7 @@ const Startpage = () => {
   return (
     <div className=" flex justify-center items-center w-full bg-grey-500 bg-blend-multiply bg-no-repeat bg-cover bg-purple-900  h-[93%]">
       <div className="flex justify-center items-center flex-col ">
-        <h1 className="text-4xl sm:text-6xl text-white font-twitch font-bold text-center tracking-widest  ">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-twitch font-bold text-center tracking-widest  ">
           Higher or Lower
         </h1>
         <p className="text-2xl xs:text-4xl text-white font-twitch font-bold text-center mt-20 tracking-widest">
